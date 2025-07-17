@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Pop Photo Booth</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="app-title">
+                <span class="title-icon">📸</span>
+                K-Pop Photo Booth
+                <span class="title-icon">✨</span>
+            </h1>
+            <p class="app-subtitle">Ciptakan foto amazing dengan frame K-Pop!</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Camera Section -->
+            <section class="camera-section">
+                <div class="camera-container">
+                    <video id="cameraVideo" autoplay muted playsinline></video>
+                    <canvas id="captureCanvas" style="display: none;"></canvas>
+                    <div class="camera-overlay">
+                        <div class="camera-frame"></div>
+                    </div>
+                </div>
+                
+                <!-- Camera Controls -->
+                <div class="camera-controls">
+                    <button id="startCameraBtn" class="btn btn-primary">
+                        <span class="btn-icon">📹</span>
+                        Aktifkan Kamera
+                    </button>
+                    <button id="captureBtn" class="btn btn-secondary" disabled>
+                        <span class="btn-icon">📸</span>
+                        Ambil Foto
+                    </button>
+                    <button id="resetBtn" class="btn btn-tertiary" disabled>
+                        <span class="btn-icon">🔄</span>
+                        Reset
+                    </button>
+                </div>
+            </section>
+
+            <!-- Template Selection -->
+            <section class="template-section">
+                <h2 class="section-title">Pilih Template K-Pop</h2>
+                <div class="template-grid">
+                    <div class="template-card active" data-template="blackpink">
+                        <div class="template-preview blackpink-template">
+                            <div class="template-content">
+                                <div class="template-name">BLACKPINK</div>
+                                <div class="template-desc">Pink Glam</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-card" data-template="bts">
+                        <div class="template-preview bts-template">
+                            <div class="template-content">
+                                <div class="template-name">BTS</div>
+                                <div class="template-desc">Purple Galaxy</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-card" data-template="twice">
+                        <div class="template-preview twice-template">
+                            <div class="template-content">
+                                <div class="template-name">TWICE</div>
+                                <div class="template-desc">Colorful Pop</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-card" data-template="newjeans">
+                        <div class="template-preview newjeans-template">
+                            <div class="template-content">
+                                <div class="template-name">NewJeans</div>
+                                <div class="template-desc">Fresh Clean</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-card" data-template="stray-kids">
+                        <div class="template-preview stray-kids-template">
+                            <div class="template-content">
+                                <div class="template-name">Stray Kids</div>
+                                <div class="template-desc">Bold Edge</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Result Section -->
+            <section class="result-section">
+                <div class="result-container">
+                    <canvas id="resultCanvas"></canvas>
+                    <div class="result-controls">
+                        <button id="downloadBtn" class="btn btn-download" disabled>
+                            <span class="btn-icon">💾</span>
+                            Download Foto
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Memproses foto...</p>
+        </div>
+
+        <!-- Error Modal -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>🚫 Oops!</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p id="errorMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="errorOkBtn" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

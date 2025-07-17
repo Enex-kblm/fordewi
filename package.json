@@ -1,0 +1,17 @@
+{
+  "name": "kpop-photo-booth",
+  "version": "1.0.0",
+  "description": "K-Pop themed photo booth web application",
+  "main": "script.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["kpop", "photo", "booth", "camera", "web"],
+  "author": "Developer",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
